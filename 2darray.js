@@ -1,81 +1,122 @@
 task = ["a", "b", "c", "d"]
 
 
-for (let letter in task){
-  console.log(task[letter])
-}
+// for (let letter in task){
+//   console.log(task[letter])
+// }
 
 
 
-let scores = [ [78, 81, 84], [55, 54, 62], [89, 71, 90] ];
+// let scores = [ [78, 81, 84], [55, 54, 62], [89, 71, 90] ];
 
 
-let scores = [ [78, 81, 84], 
+const scores = [ [78, 81, 84], 
                [55, 54, 62], 
                [89, 71, 90] ];
 
 
 let tests = ["c","b","a"]
 tests.sort()
-console.log(tests)
+// console.log(tests)
 
 
 
-console.log(scores.length);
+// console.log(scores.length);
 
 
 
-for (score of scores){
-  console.log(score);
-}
+// for (score of scores){
+//   console.log(score);
+// }
 
 
-
-for (score of scores){
-  for (element of score) {
-    console.log(element);
-  }
-}
-
-for (let i = 0; i < scores.length; i++){
-  console.log(scores[i])
-}
-
-
-for (let i = 0; i < scores.length; i++){
-  for (let j = 0; j < scores[i].length; j++){
-    console.log(scores[i][j]);
-  }
-}
-
-
-let max = 0
-
-scores.forEach(score => {
-  score.forEach(value => {
-    if (value > max){
-      max = value
+function sumOf2dArray() {
+  let sum = 0;
+  for (let score of scores){
+    for (let element of score) {
+        sum += element;
     }
-  })
-})
-console.log(max)
+  }
+    return sum;
+}
 
-
-function calculateMaxValue(df1){
-  let max = 0;
-  df1.forEach(score => {
-    score.forEach(value => {
-      if (value > max){
-        max = value;
-      }
-    })
-  
-  })
-  return max
+function averageOf2dArray() {
+  let sum = 0;
+  for (const score of scores){
+    for (const element of score) {
+        sum += element;
+    }
+  }
+  return (sum / (scores.length * scores[0].length)).toFixed(2);
 }
 
 
-console.log(calculateMaxValue(scores))
+// for (let i = 0; i < scores.length; i++){
+//   console.log(scores[i])
+// }
+
+
+// for (let i = 0; i < scores.length; i++){
+//   for (let j = 0; j < scores[i].length; j++){
+//     console.log(scores[i][j]);
+//   }
+// }
+
+
+// let max = 0
+
+// scores.forEach(score => {
+//   score.forEach(value => {
+//     if (value > max){
+//       max = value
+//     }
+//   })
+// })
+// console.log(max)
+
+
+// function calculateMaxValue(df1){
+//   let max = 0;
+//   df1.forEach(score => {
+//     score.forEach(value => {
+//       if (value > max){
+//         max = value;
+//       }
+//     })
+  
+//   })
+//   return max
+// }
+
+
+// console.log(calculateMaxValue(scores))
+
+
+
+console.log(sumOf2dArray());
+console.log(averageOf2dArray(scores));
+
+plants = [["Begonia", "Daisy", "Lily", "Peony", "Rose", "Sunflower", "Lavender"], [1,6,3,4,5,null,2]]
+
+plantList = plants[0];
+currentElement = 0
+
+for (i = 0; i < plantList.length; i++){
+    if (currentElement != "null") {
+    console.log(plants[0][currentElement]);
+    currentElement = plants[1][currentElement]
+    }  
+}
+
+// plants = [["Begonia", "Daisy", "Lily", "Peony", "Rose", "Sunflower", "Lavender"], [1,6,3,4,5,null,2]]
+// plantList = plants[0];
+// currentElement = 0;
+
+// while (currentElement != "null") {
+//  console.log(plantList[0][currentElement]);
+//   currentElement = plantList[1][CurrentElement]
+// }
+
 
 
 
