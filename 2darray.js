@@ -96,29 +96,77 @@ function averageOf2dArray() {
 console.log(sumOf2dArray());
 console.log(averageOf2dArray(scores));
 
-plants = [["Begonia", "Daisy", "Lily", "Peony", "Rose", "Sunflower", "Lavender"], [1,6,3,4,5,null,2]]
-
-plantList = plants[0];
-currentElement = 0
-
-for (i = 0; i < plantList.length; i++){
-    if (currentElement != "null") {
-    console.log(plants[0][currentElement]);
-    currentElement = plants[1][currentElement]
-    }  
-}
-
 // plants = [["Begonia", "Daisy", "Lily", "Peony", "Rose", "Sunflower", "Lavender"], [1,6,3,4,5,null,2]]
-// plantList = plants[0];
-// currentElement = 0;
 
-// while (currentElement != "null") {
-//  console.log(plantList[0][currentElement]);
-//   currentElement = plantList[1][CurrentElement]
+// plantList = plants[0];
+// currentElement = 0
+
+// for (i = 0; i < plantList.length; i++){
+//     if (currentElement != null) {
+//     console.log(plants[0][currentElement]);
+//     currentElement = plants[1][currentElement]
+//     }  
 // }
 
+// plants = [["Begonia", "Daisy", "Lily", "Peony", "Rose", "Sunflower", "Lavender"], [1,6,3,4,5,null,2]]
+//   let currentElement = 0;
+
+// while (currentElement != null) {
+//   console.log(plants[0][currentElement])
+//   currentElement = plants[1][currentElement]
+// }
+
+const readline = require("readline-sync");
+
+const gameBoard = [
+        ['','',''],
+        ['','',''],
+        ['','',''],
+]
+
+// console.table(gameBoard);
+
+function player1Move(){
+  let player1Row = readline.question(`Player1: Which row would you like to place your symbol\n(Enter a number):\n`)
+  let player1Col = readline.question(`Player1: Which column would you like to place your symbol\n(Enter a number):\n`)
+    if (gameBoard[player1Row][player1Col] === '') {
+     gameBoard[player1Row][player1Col] = 'x';
+     console.table(gameBoard)
+   }
+}
+
+function player2Move(){
+  let player2Row = readline.question(`Player2: Which row would you like to place your symbol\n(Enter a number):\n`)
+  let player2Col = readline.question(`Player2: Which column would you like to place your symbol\n(Enter a number):\n`)
+  if (gameBoard[player2Row][player2Col] === '') {
+    gameBoard[player2Row][player2Col] = 'o';
+    console.table(gameBoard)
+  }
+}
 
 
+// player1Move();
+// player2Move();
+// gameBoard(player1Response)
+console.table(gameBoard);
+
+
+function fullGame() {
+  let currentPlayer = 'x';
+    while (gameBoard[0].includes('') || gameBoard[1].includes('') || gameBoard[2].includes('')) {
+      if (currentPlayer = 'x') {
+          player1Move();
+          currentPlayer = 'o';
+      }
+      if (currentPlayer = 'o') {
+        player2Move();
+        currentPlayer = 'x';
+      }
+    }
+}
+
+fullGame();
+// console.table(gameBoard[0].includes(''));
 
 
 
